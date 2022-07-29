@@ -9,7 +9,7 @@ import messages from '../shared/AutoDismissAlert/messages'
 const cardContainerStyle = {
      display: 'flex',
      flexFlow: 'row wrap',
-     justifyContent: 'center'
+     justifyContent: 'left'
  }
 
 const DonutsIndex = (props) => {
@@ -24,7 +24,6 @@ const DonutsIndex = (props) => {
           console.log(props)
           getAllDonuts()
                .then(res => {
-                    console.log(res.data.donuts) 
                     setDonuts(res.data.donuts)
                })
                .catch(err => {
@@ -48,24 +47,18 @@ const DonutsIndex = (props) => {
      }
 
      const donutCards = donuts.map((donut) => (
-          <Card style={{ width: '30%', margin: 5}} key={ donut.id }>
-            <Card.Header>{ donut.fullTitle }</Card.Header>
+          <Card style={{ width: '30%', margin: 5}} key={ donut._id }>
+            <Card.Header>{ donut.name }</Card.Header>
             <Card.Body>
                 <Card.Text>
-                    <Link to={`/donuts/${donut._id}`}>View { donut.name }</Link>
+                    <Link to={`/donuts/${donut._id}`}>From { donut.from }</Link>
                 </Card.Text>
             </Card.Body>
         </Card>
      ))
 
-     donuts.forEach(donut => {
-          console.log('donut.name: ', donut.name)
-          console.log('donut.id: ', donut._id)
-     });
-
      return (
-          // <div style={ cardContainerStyle }>
-          <div>
+          <div style={ cardContainerStyle }>
                { donutCards }
           </div>
      )

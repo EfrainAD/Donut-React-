@@ -17,7 +17,6 @@ const ShowDonut = (props) => {
     const { msgAlert } = props
 
     useEffect(() => {
-          console.log('HI id: ', id)
         getOneDonut(id)
             .then(res => setDonut(res.data.donut))
             .catch(err => {                   
@@ -26,8 +25,7 @@ const ShowDonut = (props) => {
                    message: messages.getdonutsFailure,
                    variant: 'danger'
                })
-               // navigate('/')
-               //navigate back to the home page if there's an error fetching
+               navigate('/')
            })
     }, [])
 
