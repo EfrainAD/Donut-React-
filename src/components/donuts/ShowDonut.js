@@ -41,10 +41,10 @@ const ShowDonut = (props) => {
              <Card.Header>{ donut.name }</Card.Header>
              <Card.Body>
                  <Card.Text>
-                     <div><small>Age: { donut.name }</small></div>
-                     <div><small>Type: { donut.name }</small></div>
+                     <div><small>This donut was from: { donut.from }</small></div>
+                     <div><small>User's thoughts on the donut was: { donut.thoughts }</small></div>
                      <div><small>
-                         Had it? { donut.hasEaten ? 'yes' : 'no'}
+                         User has eaten this donut? { donut.haveEaten ? 'yes' : 'no'}
                      </small></div>
                  </Card.Text>
              </Card.Body>
