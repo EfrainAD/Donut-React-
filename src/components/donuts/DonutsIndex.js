@@ -3,6 +3,7 @@ import LoadingScreen from '../shared/LoadingScreen'
 import {getAllDonuts} from '../../api/donuts'
 import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom'
+import messages from '../shared/AutoDismissAlert/messages'
 
 // style for our card container
 const cardContainerStyle = {
@@ -14,14 +15,31 @@ const cardContainerStyle = {
 const DonutsIndex = (props) => {
      const [donuts, setDonuts] = useState(null)
 
-     useEffect(() => { //Check the s or not
+     const [error, setError] = useState(false)
+
+    const { msgAlert } = props
+    console.log('Props in DonutsIndex', props)
+
+     useEffect(() => { 
+          console.log(props)
           getAllDonuts()
                .then(res => {
                     console.log(res.data) 
                     setDonuts(res.data.donuts)
                })
-               .catch(err => console.log(err))
+               .catch(err => {
+                    msgAlert({
+                        heading: 'Error Getting Donuts',
+                        message: messages.getDonutsFailure,
+                        variant: 'danger',
+                    })
+                    setError(true)
+                })
      },[])
+
+     if (error) {
+          return <p>Error!</p>
+      }
 
      if (!donuts){
           return <p>Loading... <LoadingScreen/></p>
