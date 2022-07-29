@@ -70,7 +70,7 @@ const App = () => {
 				/>
 				<Route
 					path="/donuts/:id"
-					element={ <ShowDonut />}
+					element={ <ShowDonut msgAlert={ msgAlert } />}
 				/>
 			</Routes>
 			{msgAlerts.map((msgAlert) => (

@@ -1,27 +1,38 @@
 import { useState, useEffect,  } from 'react'
  
- import { useParams } from 'react-router-dom'
- 
+import { useParams, useNavigate } from 'react-router-dom' 
+
  import LoadingScreen from '../shared/LoadingScreen'
- import { getOnePet } from '../../api/pets'
- 
+ import { getOneDonut } from '../../api/donuts'
+ import messages from '../shared/AutoDismissAlert/messages'
 
 const ShowDonut = (props) => {
-     const [pet, setPet] = useState(null)
+     const [donut, setDonut] = useState(null)
 
     const { id } = useParams()
-    // destructuring to get the id value from our route parameters
+    const navigate = useNavigate()
+
+    const { msgAlert } = props
 
     useEffect(() => {
-        getOnePet(id)
-            .then(res => setPet(res.data.pet))
+        getOneDonut(id)
+            .then(res => setDonut(res.data.donut))
+            .catch(err => {                   
+               msgAlert({
+                   heading: 'Error getting donut',
+                   message: messages.getdonutsFailure,
+                   variant: 'danger'
+               })
+               navigate('/')
+               //navigate back to the home page if there's an error fetching
+           })
     }, [])
 
-    if (!pet) {
+    if (!donut) {
         return <LoadingScreen />
     }
 
-    return <p>This is the show pet component for { id }</p>
+    return <p>This is the show donut component for { id }</p>
  }
  
  export default ShowDonut
