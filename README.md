@@ -41,24 +41,23 @@ This is a client for our pets app. It will users to see, and create new pets, as
 | /sign-out | allows users to sign out of their account |
 | /change-password | allows users to change their password |
 
-#####TMEPLATE
-### Pet Views
+### Donut Views
 
 | Route | Description |
 | ----- | ----------- |
-| /     | pets index  |
-| /pets/:id | pet show page |
-| /addPet | new pet page |
+| /     | donuts index  |
+| /donuts/:id | donut show page |
+| /adddonut | new donut page |
+
+#####TMEPLATE
+### Pet Views
+
 
 Pet show page will have a modal for updating.
 Users will be able to delete via the show page.
 Pet show page will also allow updating and deleting toys.
 
-### Toys Views
 
-| Route | Description |
-| ----- | ----------- |
-| /addToy | new toy page |
 
 ### Wireframes
 
