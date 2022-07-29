@@ -5,6 +5,6 @@ export const getAllDonuts = () => {
     return axios(`${apiUrl}/donuts`)
 }
 
-export const getOnePet = (id) => {
-    return axios(`${apiUrl}/pets/${id}`)
+export const getOneDonut = (id) => {
+    return axios(`${apiUrl}/donuts/${id}`)
 }

@@ -24,7 +24,7 @@ const DonutsIndex = (props) => {
           console.log(props)
           getAllDonuts()
                .then(res => {
-                    console.log(res.data) 
+                    console.log(res.data.donuts) 
                     setDonuts(res.data.donuts)
                })
                .catch(err => {
@@ -47,16 +47,21 @@ const DonutsIndex = (props) => {
           return <p>No donuts yet. Better add some.</p>
      }
 
-     const donutCards = donuts.map((donut, key) => (
+     const donutCards = donuts.map((donut) => (
           <Card style={{ width: '30%', margin: 5}} key={ donut.id }>
             <Card.Header>{ donut.fullTitle }</Card.Header>
             <Card.Body>
                 <Card.Text>
-                    <Link to={`/donuts/${donut.id}`}>View { donut.name }</Link>
+                    <Link to={`/donuts/${donut._id}`}>View { donut.name }</Link>
                 </Card.Text>
             </Card.Body>
         </Card>
      ))
+
+     donuts.forEach(donut => {
+          console.log('donut.name: ', donut.name)
+          console.log('donut.id: ', donut._id)
+     });
 
      return (
           // <div style={ cardContainerStyle }>
