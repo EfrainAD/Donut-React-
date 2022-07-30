@@ -72,7 +72,7 @@ const App = () => {
 				/>
 				<Route
 					path="/donuts/:id"
-					element={ <ShowDonut msgAlert={ msgAlert } />}
+					element={ <ShowDonut  msgAlert={ msgAlert }user={user} />}
 				/>
 				<Route
 					path="/addDonut"

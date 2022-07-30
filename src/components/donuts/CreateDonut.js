@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { createOneDonut } from './../../api/donuts'
-
+// import { Redirect } from 'react-router-dom'
 import DonutForm from '../shared/DonutForm'
 
 const CreateDonut = (props) => {
@@ -12,8 +12,8 @@ const CreateDonut = (props) => {
           name: '',
           from: '',
           thoughts: '',
-          haveEaten: false,
-          owner: props.user._id
+          haveEaten: false
+          // owner: props.user._id
      })
 
      const handleChange = (e) => {
@@ -43,7 +43,8 @@ const CreateDonut = (props) => {
           console.log('CreateDonut props.user',props.user)
           console.log('CreateDonut user.token=',props.user.token)
           createOneDonut(donut, props.user)
-          // createOneDonut(donut)
+          // TODO: Find another way.
+          // return <Redirect to={'/'} />
      }
 
     return <DonutForm donut={ donut } handleChange={ handleChange } handleSubmit={ handleSubmit } />

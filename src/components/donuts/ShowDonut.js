@@ -1,5 +1,5 @@
 import { useState, useEffect,  } from 'react'
- 
+import { destroyOneDonut } from './../../api/donuts'
 import { useParams, useNavigate } from 'react-router-dom' 
 
  import LoadingScreen from '../shared/LoadingScreen'
@@ -47,6 +47,7 @@ const ShowDonut = (props) => {
                  </Card.Text>
              </Card.Body>
          </Card>
+         <button onClick={() => destroyOneDonut(id, props.user)}>Delete Donut</button>
      </Container>
  )
  }

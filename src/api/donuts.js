@@ -1,6 +1,6 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
-import { Redirect } from 'react-router-dom'
+// import Redirect from './../components/shared/Redirect'
 
 export const getAllDonuts = () => {
     return axios(`${apiUrl}/donuts`)
@@ -20,8 +20,13 @@ export const createOneDonut = (donut, user) => {
       headers: { Authorization: `Token token=${user.token}` }
     })
       .then((res) => {
-        console.log('API createOneDonut user.token=',user.toekn)
-        console.log('API createOneDonut res ',res)
+        // console.log('API createOneDonut res ',res)
+        // const a = `/donuts/${res.data.donut._id}`
+        // console.log('inside API src res.d: ', a)
+        // <Redirect path={`/donuts/${res.data.donut._id}`} />
+		// return navigate(`/donuts/${res._id}`)
+
+        //WHY the return?
         // CLEAN UP
         // this.setState({ createdId: res.data.book._id })
         // hope works
@@ -34,18 +39,19 @@ export const createOneDonut = (donut, user) => {
         console.log(error)})
   }
 
-//   axios.post("https://reqres.in/api/login", userData).then((response) => {
-//       console.log(response.status);
-//       console.log(response.data.token);
-//     });
-
-// This is my failed attempt to figer this out.
-// export const createOneDonut = (donut, user) => {
-//      axios.post(`${apiUrl}/donuts`, {donut}, {user})
-//           .then(function (response) {
-//           console.log(response);
-//           })
-//           .catch(function (error) {
-//           console.log(error);
-//           })
-// }
+export const destroyOneDonut = (id, user) => {
+    console.log('destroyOneDonut is running')
+    console.log('destroyOneDonut donut is ', id)
+    console.log('destroyOneDonut user is ', user)
+axios({
+    method: 'delete',
+    url: `${apiUrl}/donuts/${id}`,
+    headers: { Authorization: `Token token=${user.token}` }
+})
+    // .then((res) => {
+    //     console.log('DONE, donut has been deleted')
+    // })
+    // .catch((error)=>{
+    //     console.log(error)
+    // })
+}
