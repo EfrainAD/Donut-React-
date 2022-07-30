@@ -10,15 +10,18 @@ export const getOneDonut = (id) => {
     return axios(`${apiUrl}/donuts/${id}`)
 }
 
-export const createOneDonut = (donut) => {
-
+export const createOneDonut = (donut, user) => {
+    
+    console.log('API createOneDonut user.token=',user.token)
     axios({
       method: 'POST',
       url: `${apiUrl}/donuts`,
-      data: { donut: donut}
+      data: { donut: donut },
+      headers: { Authorization: `Token token=${user.token}` }
     })
       .then((res) => {
-        console.log(res)
+        console.log('API createOneDonut user.token=',user.toekn)
+        console.log('API createOneDonut res ',res)
         // CLEAN UP
         // this.setState({ createdId: res.data.book._id })
         // hope works
@@ -26,7 +29,9 @@ export const createOneDonut = (donut) => {
         // CLEANUP
         // setCreatedId(res.data.book._id)
       })
-      .catch(console.error)
+      .catch((error)=>{
+        // console.log('API createOneDonut user.token=',user.toekn)
+        console.log(error)})
   }
 
 //   axios.post("https://reqres.in/api/login", userData).then((response) => {

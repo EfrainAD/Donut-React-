@@ -39,10 +39,11 @@ const CreateDonut = (props) => {
                // setDonut({'haveEaten': true, 'name':'Chow"'})}
                // setDonut({'haveEaten': true})}
           // CLEANUP
-          console.log(donut)
-          console.log(props.user)
-          // createOneDonut(donut, props.user)
-          createOneDonut(donut)
+          console.log('CreateDonut donut',donut)
+          console.log('CreateDonut props.user',props.user)
+          console.log('CreateDonut user.token=',props.user.token)
+          createOneDonut(donut, props.user)
+          // createOneDonut(donut)
      }
 
     return <DonutForm donut={ donut } handleChange={ handleChange } handleSubmit={ handleSubmit } />
