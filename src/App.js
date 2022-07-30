@@ -13,7 +13,7 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import ShowDonut from './components/donuts/ShowDonut'
-import DonutForm from './components/shared/DonutForm'
+import CreateDonut from './components/donuts/CreateDonut'
 
 const App = () => {
 
@@ -76,7 +76,11 @@ const App = () => {
 				/>
 				<Route
 					path="/addDonut"
-					element={ <DonutForm /> }
+					element={
+						<RequireAuth user={ user }>
+							<CreateDonut user={user} />
+						</RequireAuth>
+					}
 				/>
 			</Routes>
 			{msgAlerts.map((msgAlert) => (
