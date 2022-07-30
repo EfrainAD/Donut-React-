@@ -13,6 +13,8 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import ShowDonut from './components/donuts/ShowDonut'
+import DonutForm from './components/shared/DonutForm'
+
 const App = () => {
 
   const [user, setUser] = useState(null)
@@ -71,6 +73,10 @@ const App = () => {
 				<Route
 					path="/donuts/:id"
 					element={ <ShowDonut msgAlert={ msgAlert } />}
+				/>
+				<Route
+					path="/addDonut"
+					element={ <DonutForm /> }
 				/>
 			</Routes>
 			{msgAlerts.map((msgAlert) => (
