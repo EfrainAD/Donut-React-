@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { createOneDonut } from './../../api/donuts'
-// import { Redirect } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import DonutForm from '../shared/DonutForm'
 
 const CreateDonut = (props) => {
-
+     const navigate = useNavigate()
      //CLEANUP
 	console.log('props in CreateDonut', props)
 
@@ -43,6 +43,13 @@ const CreateDonut = (props) => {
           console.log('CreateDonut props.user',props.user)
           console.log('CreateDonut user.token=',props.user.token)
           createOneDonut(donut, props.user)
+          .then((res) => {
+
+               navigate(`/donuts/${res.data.donut._id}`)
+          })
+          .catch((error)=>{
+            // console.log('API createOneDonut user.token=',user.toekn)
+            console.log(error)})
           // TODO: Find another way.
           // return <Redirect to={'/'} />
      }
