@@ -28,11 +28,22 @@ const EditDonut = (props) => {
 
      const handleChange = (e) => {
           setDonut(prevDonut => {
-               e.persist()
-               const updatedValue = e.target.value
+
                const updatedName = e.target.name
+               // const updatedValue = e.target.value
+               let updatedValue = e.target.value
+               const updatedChecked = e.target.checked
                console.log(`${updatedName}: ${updatedValue}`)
                
+               if (updatedName === 'haveEaten') {
+                    if (updatedChecked === true) {
+                         updatedValue = true
+                    } else {
+                         updatedValue = false
+                    }
+                    console.log('updated Checked: ', updatedChecked)
+               } 
+
                const updatedDonut = {
                     [updatedName]: updatedValue
                }
@@ -45,7 +56,6 @@ const EditDonut = (props) => {
 
      const handleSubmit = (e) => {
           e.preventDefault()
-          
           console.log('EditDonut donut',donut)
           console.log('EditDonut props.user',props.user)
           console.log('EditDonut user.token=',props.user.token)
@@ -57,7 +67,7 @@ const EditDonut = (props) => {
            .catch((error)=> console.error)
           // TODO: Find another way.
      }
-
+     // if (donut) {}
     return donut ? <DonutForm donut={ donut } handleChange={ handleChange } handleSubmit={ handleSubmit } /> : <p>Loading...</p>
 //     return <DonutForm donut={ donut } handleChange={ handleChange } handleSubmit={ handleSubmit } />
 }
