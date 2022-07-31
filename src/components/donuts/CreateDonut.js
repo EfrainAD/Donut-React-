@@ -13,15 +13,32 @@ const CreateDonut = (props) => {
           from: '',
           thoughts: '',
           haveEaten: false
-          // owner: props.user._id
      })
 
      const handleChange = (e) => {
           setDonut(prevDonut => {
-               const updatedValue = e.target.value
                const updatedName = e.target.name
+               let updatedValue = e.target.value
+               const updatedChecked = e.target.checked
                console.log(`${updatedName}: ${updatedValue}`)
                
+               if (updatedName === 'haveEaten') {
+                    if (updatedChecked === true) {
+                         updatedValue = true
+                    } else {
+                         updatedValue = false
+                    }
+                    // console.log('updated Value: ', updatedValue)
+                    console.log('updated Checked: ', updatedChecked)
+                    // updatedValue = false
+                    // if (updatedChecked ===  'on' ) {
+                    //      updatedValue = null
+                    // } else {
+                    //      updatedValue = 'on'
+                    // }
+
+               } 
+
                const updatedDonut = {
                     [updatedName]: updatedValue
                }

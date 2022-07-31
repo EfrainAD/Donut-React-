@@ -32,10 +32,11 @@ const DonutForm = (props) => {
               />
               <Form.Check
                   label="Have you tried this donut yet?"
-                  checked={donut.haveEaten}
-                //   name="haveEaten"
-                  defaultChecked={ false  }
-               //    onChange={props.handleChange}
+                //   checked = {true}
+                  checked = {donut.haveEaten}
+                  name="haveEaten"
+                //   defaultChecked={ false }
+                  onChange={props.handleChange}
               />
               <Button type="submit">Submit</Button>
           </Form>
