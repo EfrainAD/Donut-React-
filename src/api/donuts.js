@@ -48,10 +48,24 @@ axios({
     url: `${apiUrl}/donuts/${id}`,
     headers: { Authorization: `Token token=${user.token}` }
 })
-    // .then((res) => {
-    //     console.log('DONE, donut has been deleted')
-    // })
-    // .catch((error)=>{
-    //     console.log(error)
-    // })
+    .then((res) => {
+        console.log('DONE, donut has been deleted')
+    })
+    .catch((error)=>{
+        console.log(error)
+    })
+}
+
+export const editOneDonut = (donut, user) => {
+     axios({
+        method: 'PATCH',
+        url: `${apiUrl}/donuts/${donut._id}`,
+        data: { donut: donut },
+        headers: { Authorization: `Token token=${user.token}` }
+      })
+      .then((res) => {
+        console.log('DONE, donut has been edited')
+    //     navigate(``)
+    })
+    .catch((error)=> console.error)
 }
