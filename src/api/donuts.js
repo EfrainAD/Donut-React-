@@ -25,16 +25,10 @@ export const destroyOneDonut = (id, user) => {
     console.log('destroyOneDonut is running')
     console.log('destroyOneDonut donut is ', id)
     console.log('destroyOneDonut user is ', user)
-axios({
-    method: 'delete',
-    url: `${apiUrl}/donuts/${id}`,
-    headers: { Authorization: `Token token=${user.token}` }
-})
-    .then((res) => {
-        console.log('DONE, donut has been deleted')
-    })
-    .catch((error)=>{
-        console.log(error)
+    return axios({
+        method: 'delete',
+        url: `${apiUrl}/donuts/${id}`,
+        headers: { Authorization: `Token token=${user.token}` }
     })
 }
 
