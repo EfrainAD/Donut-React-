@@ -50,6 +50,11 @@ const EditDonut = (props) => {
           console.log('EditDonut props.user',props.user)
           console.log('EditDonut user.token=',props.user.token)
           editOneDonut(donut, props.user)
+          .then((res) => {
+               console.log('DONE, donut has been edited')
+               navigate(`/donuts/${id}`)
+           })
+           .catch((error)=> console.error)
           // TODO: Find another way.
      }
 

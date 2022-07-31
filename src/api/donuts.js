@@ -57,15 +57,10 @@ axios({
 }
 
 export const editOneDonut = (donut, user) => {
-     axios({
+    return axios({
         method: 'PATCH',
         url: `${apiUrl}/donuts/${donut._id}`,
         data: { donut: donut },
         headers: { Authorization: `Token token=${user.token}` }
       })
-      .then((res) => {
-        console.log('DONE, donut has been edited')
-    //     navigate(``)
-    })
-    .catch((error)=> console.error)
 }
