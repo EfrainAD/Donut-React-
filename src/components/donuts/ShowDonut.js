@@ -46,12 +46,13 @@ const ShowDonut = (props) => {
                  </Card.Text>
              </Card.Body>
          </Card>
+         
          <button onClick={() => destroyOneDonut(id, props.user)}>Delete Donut</button>
-         <button>
-            <Link to={`/donuts/${id}/edit`}>
-                Edit Donut
-            </Link>
-        </button>
+         
+        <Link to={`/donuts/${id}/edit`}>
+            <button>Edit Donut</button>
+        </Link>
+        
      </Container>
  )
  }
