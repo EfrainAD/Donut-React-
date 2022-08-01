@@ -8,24 +8,21 @@ const linkStyle = {
 }
 const authenticatedOptions = (
 	<>
-		<Nav.Link>
+		<Nav.Item className='m-2'>
 			<Link to="/addDonut" style={ linkStyle }>
 				Add a Donut
 			</Link>
-		</Nav.Link>
-		<Nav.Link>
+		</Nav.Item>
+		<Nav.Item className='m-2'>
 			<Link to='change-password' style={linkStyle}>
 				Change Password
 			</Link>
-		</Nav.Link>
-		<Nav.Link>
+		</Nav.Item>
+		<Nav.Item className='m-2'>
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
 			</Link>
-			<Link to='sign-out' style={linkStyle}>
-				Sign Out
-			</Link>
-		</Nav.Link>
+		</Nav.Item>
 	</>
 )
 
