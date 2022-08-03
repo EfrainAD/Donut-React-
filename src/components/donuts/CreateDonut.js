@@ -5,8 +5,6 @@ import DonutForm from '../shared/DonutForm'
 
 const CreateDonut = (props) => {
      const navigate = useNavigate()
-     //CLEANUP
-	console.log('props in CreateDonut', props)
 
      const [donut, setDonut] = useState({
           name: '',
@@ -28,15 +26,7 @@ const CreateDonut = (props) => {
                     } else {
                          updatedValue = false
                     }
-                    // console.log('updated Value: ', updatedValue)
                     console.log('updated Checked: ', updatedChecked)
-                    // updatedValue = false
-                    // if (updatedChecked ===  'on' ) {
-                    //      updatedValue = null
-                    // } else {
-                    //      updatedValue = 'on'
-                    // }
-
                } 
 
                const updatedDonut = {
@@ -51,24 +41,12 @@ const CreateDonut = (props) => {
 
      const handleSubmit = (e) => {
           e.preventDefault()
-          // if (donut.haveEaten === 'on'){
-          //      setDonut((preState)=>({...preState, ...{'haveEaten': true}}))}
-               // setDonut({'haveEaten': true, 'name':'Chow"'})}
-               // setDonut({'haveEaten': true})}
-          // CLEANUP
-          console.log('CreateDonut donut',donut)
-          console.log('CreateDonut props.user',props.user)
-          console.log('CreateDonut user.token=',props.user.token)
           createOneDonut(donut, props.user)
           .then((res) => {
-
                navigate(`/donuts/${res.data.donut._id}`)
           })
           .catch((error)=>{
-            // console.log('API createOneDonut user.token=',user.toekn)
             console.log(error)})
-          // TODO: Find another way.
-          // return <Redirect to={'/'} />
      }
 
     return <DonutForm donut={ donut } handleChange={ handleChange } handleSubmit={ handleSubmit } />
