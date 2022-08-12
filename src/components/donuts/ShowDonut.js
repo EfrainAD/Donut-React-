@@ -43,7 +43,7 @@ const ShowDonut = (props) => {
     if (!donut) {
         return <LoadingScreen />
     }
-
+    console.log('HIIII, ', donut)
     return (
         <Container className="fluid">
             <Card>
